@@ -14,7 +14,8 @@
 	},
 	"scripts": {
 		"start": "craco start",
-		"build": "craco build",
+		"build": "npm install --prefix=./node_modules/@prerenderer/renderer-puppeteer/node_modules/puppeteer && npm run build:prerender",
+		"build:prerender": "npm run build -- --prerender",
 		"test": "craco test"
 	},
 	"eslintConfig": {
