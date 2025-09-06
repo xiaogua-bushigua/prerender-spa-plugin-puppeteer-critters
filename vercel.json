@@ -1,0 +1,8 @@
+{
+	"build": {
+		"env": {
+			"PUPPETEER_SKIP_CHROMIUM_DOWNLOAD": "true"
+		},
+		"script": "npm install --prefix=./node_modules/puppeteer puppeteer && npm run build"
+	}
+}
