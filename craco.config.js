@@ -5,15 +5,15 @@ const Critters = require('critters');
 module.exports = {
 	webpack: {
 		configure: (webpackConfig, { env, paths }) => {
-			paths.appBuild = path.resolve(__dirname, 'dist');
-			webpackConfig.output.path = path.resolve(__dirname, 'dist');
+			paths.appBuild = path.resolve(__dirname, 'critical');
+			webpackConfig.output.path = path.resolve(__dirname, 'critical');
 
 			webpackConfig.plugins.push(
 				new PrerenderSPAPlugin({
 					// 必需：指定要预渲染的路由
 					routes: ['/'],
 					// 必需：指定静态文件的根目录，通常是你的输出目录
-					staticDir: path.resolve(__dirname, 'dist'),
+					staticDir: path.resolve(__dirname, 'critical'),
 					// 可选：用于渲染的无头浏览器配置
 					renderer: new PrerenderSPAPlugin.PuppeteerRenderer({
 						// 确保无头浏览器有足够的时间来渲染页面
@@ -21,7 +21,7 @@ module.exports = {
 					}),
 					async postProcess(renderedRoute) {
 						const critters = new Critters({
-							path: path.resolve(__dirname, 'dist'),
+							path: path.resolve(__dirname, 'critical'),
 							preload: 'swap',
 							compress: true,
 							pruneSource: true,
